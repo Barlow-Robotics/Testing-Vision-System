@@ -5,7 +5,7 @@ import math
 import mss
 import numpy as np
 
-CONF_THRES = 0.5
+CONF_THRES = 0.7
 real_diamter_of_ball = 5.91 * 0.0254  # Convert inches to meters
 Horintoal_FOV = 63.5
 
@@ -32,7 +32,7 @@ def compile_image(frame):
                 distance = (real_diamter_of_ball * f) / bbox_width
                 
                 distance *= 39.3701
-                distance_text = f"{distance:.2f} m"
+                distance_text = f"{distance:.2f} in"
                 cv2.putText(frame, distance_text, (x1, y2 + 25),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 3)
                 
