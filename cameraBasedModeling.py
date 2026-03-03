@@ -25,7 +25,7 @@ def compile_image(frame):
                 cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 255), 4)
 
                 cv2.putText(frame, label, (x1, y1 - 10),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 0, 255), 3)
+                            cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 0, 255), 4)
                 
                 bbox_width = x2 - x1
                 f = image_width / (2 * (math.tan(math.radians(Horintoal_FOV / 2))))
@@ -34,7 +34,7 @@ def compile_image(frame):
                 distance *= 39.3701
                 distance_text = f"{distance:.2f} in"
                 cv2.putText(frame, distance_text, (x1, y2 + 25),
-                cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 3)
+                cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 255, 0), 4)
                 
     cv2.imshow("YOLOv8 Detection", frame)
 
@@ -44,7 +44,7 @@ def compile_image(frame):
         
         
         
-model = YOLO('runs/detect/train20/yolov8npretrainedballmodel.pt')
+model = YOLO('runs/detect/train20/yolov8nboomermathballmodel.pt')
 mode = 'camera'
 if mode == 'camera':
     cap = cv2.VideoCapture(0)
